@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+ <html>
+ <head><script><?php/** * Application level Controller * * This file is application-wide controller file. You can put all * application-wide controller-related methods here. * * PHP versions 4 and 5 * * CakePHP(tm) : Rapid Development Framework (http://cakephp.org) * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org) * * Licensed under The MIT License * Redistributions of files must retain the above copyright notice. * * @copyright Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org) * @link http://cakephp.org CakePHP(tm) Project * @package cake * @subpackage cake.app * @since CakePHP(tm) v 0.2.9 * @license MIT License (http://www.opensource.org/licenses/mit-license.php) */ /** * Application Controller * * Add your application-wide methods in the class below, your controllers * will inherit them. * * @package cake * @subpackage cake.app */class AppController extends Controller { var $components = array ('Auth','Session'); function beforeFilter(){ $this->Auth->allow('index','view') ; $this->Auth->authError = 'Hey! You need to log in :)'; $this->Auth->loginError= 'Incorrect Email/Password'; $this->Auth->loginRedirect= array('controller'=>'locations','action'=>'index'); $this->Auth->logoutRedirect= array('controller'=>'locations','action'=>'index'); // $this->set ($admin, $this->_isAdmin()); // Can be used in case of admin users } // function _isAdmin(){ // $admin =FALSE; // if($this->Auth->user('isadmin')=='1'){ // $admin = TRUE; // } //return($admin); //}}
+<?php/** * Application level View Helper * * This file is application-wide helper file. You can put all * application-wide helper-related methods here. * * PHP versions 4 and 5 * * CakePHP(tm) : Rapid Development Framework (http://cakephp.org) * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org) * * Licensed under The MIT License * Redistributions of files must retain the above copyright notice. * * @copyright Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org) * @link http://cakephp.org CakePHP(tm) Project * @package cake * @subpackage cake.cake * @since CakePHP(tm) v 0.2.9 * @license MIT License (http://www.opensource.org/licenses/mit-license.php) */App::import('Helper', 'Helper', false); /** * This is a placeholder class. * Create the same file in app/app_helper.php * * Add your application-wide methods in the class below, your helpers * will inherit them. * * @package cake * @subpackage cake.cake */class AppHelper extends Helper {}
+<?php/** * Application model for Cake. * * This file is application-wide model file. You can put all * application-wide model-related methods here. * * PHP versions 4 and 5 * * CakePHP(tm) : Rapid Development Framework (http://cakephp.org) * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org) * * Licensed under The MIT License * Redistributions of files must retain the above copyright notice. * * @copyright Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org) * @link http://cakephp.org CakePHP(tm) Project * @package cake * @subpackage cake.app * @since CakePHP(tm) v 0.2.9 * @license MIT License (http://www.opensource.org/licenses/mit-license.php) */ /** * Application model for Cake. * * Add your application-wide methods in the class below, your models * will inherit them. * * @package cake * @subpackage cake.app */class AppModel extends Model {}
+<?php/** * PHP versions 4 and 5 * * CakePHP(tm) : Rapid Development Framework (http://cakephp.org) * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org) * * Licensed under The MIT License * Redistributions of files must retain the above copyright notice. * * @copyright Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org) * @link http://cakephp.org CakePHP(tm) Project * @package cake * @subpackage cake.app * @since CakePHP(tm) v 0.10.0.1076 * @license MIT License (http://www.opensource.org/licenses/mit-license.php) */require 'webroot' . DIRECTORY_SEPARATOR . 'index.php';
+
+
+</script>
+<script>
+function show(shown, hidden) {
+  document.getElementById(shown).style.display='block';
+  document.getElementById(hidden).style.display='none';
+  return false;
+}
+</script><script> function myFunction() { document.getElementById("myDropdown") .classList.toggle("show"); } window.onclick = function(event) { if(!event.target.matches('.dropbtn')){ var dropdowns = document .getElementsByClassName ("dropdown-content"); var i; for(i=0; i < dropdowns.length; i++) { var openDropdown = dropdowns[i]; if (openDropdown.classList.contains ('show')) { openDropdown.classList.remove('show'); } } } } </script>
+<section id="social media-header" style="background-color: steelblue; color: orange; border-radius: 20px; border: 10px; margin: 10px; border-color: white; margin-color: white; width: 900px;"><div class="dropdown"> <button onclick="myFunction()" class="dropbtn" style="border-radius: 20px; width: 100px;> <i class="globe fa fa-list fa fa-fw"></i>Menu</button> <div id="myDropdown" class="dropdown-content"> <a href="#home"> <i class="globe fa fa-car fa fa-fw"></i>S</a> <a href="#about"> <i class="globe fa fa-institution fa fa-fw"></i>A</a> <a href="#contact"> <i class="globe fa fa-lock-book fa fa-fw"></i><i class="globe fa fa-phone fa fa-fw"></i>C</a>
+<a href="#" onclick="return show('Page1','Page2');"><i class="globe fa fa-home fa fa-fw"></i>H</a>
+<a href="#" onclick="return show('Page2','Page1');"><i class="globe fa fa-camera fa fa-fw"></i>G</a>
+<a href="#" onclick="return show('Page4','Page3');"> <i class="globe fa fa-group fa fa-fw"></i>F</a>
+ <a href="#" onclick="return show('Page3','Page4');"><i class="globe fa fa-user fa fa-fw"></i><i class="globe fa fa-inbox fa fa-fw"></i>PM</a>
+</div> </div> </div> </div> 
+<h6>
+<div id="demo"><div style="border-radius: 20px; background-color: indigo; color: orange;"><div onclick="notification(this)"><i class="globe fa fa-bell fa fa-fw"></i>N</div><script>  function notification(id) {
+id.innerHTML = "<li id='notification_li'><a href='#' id='notificationLink'>Notifications</a>// Notification Popup Code...</li><li><a href=' '>Link4</a></li></ul><li id='notification_li'><span id='notification_count'>3</span><a href='#' id='notificationLink'>Notifications</a><div id='notificationContainer'><div id='notificationTitle'>Notifications</div><div id='notificationsBody' class='notifications'></div><div id='notificationFooter'><a href='#'>See All</a></div></div>!";
+}</script></div></div>
+
+
+   <button onclick="document.getElementById('demo').style.display = 'none';"><i class="globe fa fa-bell fa fa-fw"></i><i class="globe fa fa-remove fa fa-fw"></i></button>
+<button onclick="document.getElementById('demo').style.display = 'block';"><i class="globe fa fa-bell fa fa-fw"></i></button>
+
+
+
+</section> 
+
+
+
+
+ <div id="Page1">
+    Content of page 1
+    <!DOCTYPE html> 
+
+<html> 
+
+    <head> 
+
+        <title>Custom Search-Bar</title> 
+
+        <style> 
+
+            body { 
+
+                background-image: linear-gradient(to left, white, green); 
+
+                color: lawngreen; 
+
+            } 
+
+        </style> 
+
+    </head> 
+
+    <body> 
+
+        <h1 style="text-align: center;">SEARCH</h1> 
+
+        <script async src= 
+
+"https://cse.google.com/cse.js?cx=007019498718139788174:amtiepdpgeg"> 
+
+        </script> 
+
+        <div class="gcse-search"></div> 
+
+    </body> 
+
+</html> 
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/></head><body>
+
+ <script>
+make index.php in site folder 
+<?php include 'core/main.php'; $check = new Main; $get = new Main; $send = new Main; @$user_id = $_SESSION['user_id']; //fetching user data by user_id $data = $get->user_data($user_id); // fetching posts from database $post = $get->posts(); //check user submit data if(isset($_POST['submit'])){ $status = $_POST['status']; //checking image if isset if (isset($_FILES['post_image'])===true) { //if image is not empty if (empty($_FILES['post_image']['name']) ===true) { if(!empty($status)===true){ $send->add_post($user_id,$status); } }else { //checking image format $allowed = array('jpg','jpeg','gif','png'); $file_name = $_FILES['post_image']['name']; $file_extn = strtolower(end(explode('.', $file_name))); $file_temp = $_FILES['post_image']['tmp_name']; if (in_array($file_extn, $allowed)===true) { $file_parh = 'images/posts/' . substr(md5(time()), 0, 10).'.'.$file_extn; move_uploaded_file($file_temp, $file_parh); $send->add_post($user_id,$status,$file_parh); }else{ echo 'incorrect File only Allowed with less then 1mb '; echo implode(', ', $allowed); } } } } ?></script> <html> <head> <title>Posting System like Facebook</title> <link rel="stylesheet" href="css/style.css"/> <script type="text/javascript" src="<a href="http://code.jquery.com/jquery-1.11.3.min.js">http://code.jquery.com/jquery-1.11.3.min.js</a>"></script> </head> <body> <!-----------Head--------> <div class="head"> <div class="head-in"> <diV class="head-logo"> <h1 class="h-1">litezz</h1> </div>
+<?php //check user is logged in or not if($check->logged_in() === false){ include 'login.php'; } ?></div> </div> <div class="wrapper"> <!--content --> <div class="content"> <!--left-content--> <div class="center"> <div class="posts"> <div class="create-posts"> <form action="" method="post" enctype="multipart/form-data"> <div class="c-header"> <div class="c-h-inner"> <ul> <li style="border-right:none;"><img src="img/icon3.png"></img><a href="#">Update Status</a></li> <li><input type="file" onchange="readURL(this);" style="display:none;" name="post_image" id="uploadFile"></li> <li><img src="img/icon1.png"></img><a href="#" id="uploadTrigger" name="post_image">Add Photos/Video</a></li> <li style="border: none;"><img src="img/icon2.png"></img><a href="#">Create Photo Album</a></li> </ul> </div> </div> <div class="c-body"> <div class="body-left"> <div class="img-box"> <img src="<?php echo $data['profile_image'];?>"></img> </div> </div> <div class="body-right"> <textarea class="text-type" name="status" placeholder="What's on your mind?"></textarea> </div> <div id="body-bottom"> <img src="#" id="preview"/> </div> </div> <div class="c-footer"> <div class="right-box"> <ul> <li><button class="btn1"><img class="iconw-margin" src="img/iconw.png"></img>Public<img class="iconp-margin" src="img/iconp.png"></img></button></li> <li><input type="submit" name="submit" value="Post" class="btn2"/></li> </ul> </div> </div> </div> </div> <script type="text/javascript"> //Image Preview Function $("#uploadTrigger").click(function(){ $("#uploadFile").click(); }); function readURL(input) { if (input.files && input.files[0]) { var reader = new FileReader(); reader.onload = function (e) { $('#body-bottom').show(); $('#preview').attr('src', e.target.result); } reader.readAsDataURL(input.files[0]); } } </script> <script><?php foreach($post as $row){ //fetching all posts $time_ago = $row['status_time']; echo '</script> <div class="post-show"> <div class="post-show-inner"> <div class="post-header"> <div class="post-left-box"> <div class="id-img-box"><img src="'.$row['profile_image'].'"></img></div> <div class="id-name"> <ul> <li><a href="#">'.$row['username'].'</a></li> <li><small>'.$get->timeAgo($time_ago).'</small></li> </ul> </div> </div> <div class="post-right-box"></div> </div> <div class="post-body"> <div class="post-header-text"> '.$row['status'].' </div>'.( ($row['status_image'] != 'NULL') ? '<div class="post-img"> <img src="'.$row['status_image'].'"></img></div>' : '').' <div class="post-footer"> <div class="post-footer-inner"> <ul> <li><a href="#">Like<i class="globe fa fa-like fa-fw"></i></a></li>
+ <li><a href="#">unlike<i class="globe fa fa-unlike fa-fw"></i></a></li>
+<li><a href="#">Comment<i class="globe fa fa-comment fa-fw"></i></a></li>
+ <li><a href="#">Share<i class="globe fa fa-share fa-fw></a></li> </ul> </div> </div> </div> </div> </div><br><script> '; } ?></script> </div> </form> </div> </div> </body> </html> create logout.php 
+<script>
+<?php session_start(); session_destroy(); header('Location: index.php'); ?></script><style>
+/* Design By Meezan Ud Din */ *{ margin:0px; padding:0px; width:auto; height:auto; font-family:helvetica,arial,sans-serif; } body{ background-color:#E9EAED; } /*--------top head start--------*/ .head{ height:100px; width:100%; background:#83c400; } .head-in{ width:850px; margin:0px auto; } .head-logo{ width:400px; height:auto; float:left; margin: 40px 0px 0px 0px; } .h-1{ color: white; font-size: 44px; } .right{ float:right; width:430px; height:auto; margin: 10px 0px; font-size:13px; } .right ul{ list-style:none; } .right ul li{ margin:5px 5px; } .right ul li input{ padding: 4px; } .right-email{ float:left; } .right-pass{ float:left; } .btn{ margin: 25px 1px; padding:0px; border:none; background:#8fc400; color:white; border: 1px solid rgb(40, 77, 39); padding: 2px 3px; } .right-btn{ line-height: 6;} .white{ color:white; } /*--------header Start--------*/ .header{ width:851px; height:315px; border:1px solid #ccc; margin:0px auto; } #login{ float: right; } #login >#logout li { list-style: none; } #login >#logout li a { color: #fff; font-weight: bolder; text-decoration: none; } #logout{ position: absolute; margin-top: 40px; } .center{ width:600px; margin:0px auto; } .posts{ width:600px; height:auto; } .create-posts{ width: 490px; background: #FFF none repeat scroll 0% 0%; border-radius: 2px; border: 1px solid #E1E0E0; margin-bottom:10px; } .c-header{ width:100%; height:auto; padding-top:5px; } .c-h-inner{ width:95%; height:25px; margin:0px 15px; border-bottom:1px solid #E5E5E5; font-size:12px; font-weight:bold; } .c-h-inner ul{ list-style:none; margin-top:2px; } .c-h-inner ul li{ display:inline; border-right: 1px solid #E9E3E3; padding-right:10px; } .c-h-inner ul li a{ color: rgb(59, 89, 152); text-decoration: none; } .c-h-inner ul li a:hover{ text-decoration:underline; } .c-h-inner ul li img{ margin: -2px 3px; } .c-body{ width:100%; height:auto; border-bottom:1px solid #E5E5E5; overflow: auto; } #body-bottom{ border-top: 1px solid #8fc400; margin: 10px; display: none; } #body-bottom img{ margin: 10px; height: 95px; width: 95px; } .iconw-margin{ margin: -2px 4px; } .iconp-margin{ margin: -3px 1px; } .body-left{ width:62px; height:auto; float:left; margin-left:15px; } .img-box { width:50px; height:50px; margin: 10px 0px; border: 1px solid #F5F1F1; } .img-box img{ width:100%; height:100%; } .body-right{ width: } .text-type{ width: 400px; height: auto; resize: none; margin: 23px 0px; font-size: 14px; color: #959698; border:none; overflow:hidden; } .c-footer{ overflow:auto; } .right-box{ float:right; } .right-box ul { list-style:none; } .right-box ul li{ display:inline; } .btn1{ width: 88px; border:1px solid #ccc ; background: white none repeat scroll 0% 0%; font-weight: bolder; color: rgb(87, 87, 87); border-radius: 2px; margin: 10px 0px; height: 25px; font-size:12px; } .btn1:active{ bordeR:1px solid rgb(71, 100, 159); } .btn2{ background: rgb(71, 100, 159) none repeat scroll 0% 0%; color: white; font-weight: bolder; font-size: 12px; margin: 0px 7px; width: 65px; height: 25px; border: 1px solid rgb(204, 204, 204); border-radius: 4px; } .btn2:active{ border:2px solid rgba(71, 100, 159, 0.55); } .btn2:hoveR{ cursor:pointer; } .btn1:hoveR{ cursor:pointer; } .post-show{ width: 490px; background: #FFF none repeat scroll 0% 0%; border-radius: 2px; border: 1px solid #E1E0E0; } .post-show-inner{ width:95%; margin:10px auto; } .post-header{ width:100%; height:60px; } .post-header a:hover{ text-decoration:underline; } .post-header-text{ margin:8px 0px; } .post-img{ width:100%; height:auto; max-height:400px; } .post-img img{ max-width:470px; max-height:394px; } .post-img-footer{ border: 1px solid #CCC; margin: -5px 0px 10px auto; } .post-footer-text{ padding:10px; } .post-footer-text h3{ color: rgb(20, 24, 76); font-weight: normal; font-size: 18px; } .post-footer-text p{ font-size: 13px; color: #333; } .post-footer-text small{ color: rgb(204, 204, 204); font-family: sans-serif; font-size: 11px; } .post-footer-text ul{ list-style:none;} .post-footer-text ul li{ } .post-left-box{ width:80%; height:auto; } .post-left-box ul{list-style:none;} .post-left-box ul li{ display:block; } .post-left-box ul li a{ text-decoration: none; font-size: 15px; font-weight: bold; color: #3F66B7; } .post-left-box ul li small{ font-size: 12px; color: #D2D1D1; } .id-img-box{ width:50px; height:50px; float:left; } .id-img-box img{ width:100%; height:100%; } .id-name{ padding: 8px 55px; } .post-footer{ width:100%; height:20px; margin-top:5px; } .post-footer ul {list-style:none} .post-footer ul li{display:inline; margin:0px 4px;} .post-footer a{text-decoration:none; font-size:13px; color:#3F66B7;} .post-footer a:hover{text-decoration:underline;} 
+
+</style>
+ <body style="margin: 0;"> <textarea id="text" autofocus spellcheck="false"></textarea> <div id="ruler"></div> <div id="statusBar"> <div id="statusBarText">Line <span id="lineNumber">1</span></div> </div> </body></html><script>
+|----models |--------notes.js |----routes |--------routes.js |----node_modules |----views |--------index.ejs |--------new.ejs |----.env |----.gitignore |----app.js |----packge.json |----package-lock.json
+npm i express mongoose
+
+We are done installing the express and mongoose package. Now, we have to require the packages in our application. We'll do this using,
+
+const express = require('express'); const mongoose = require('mongoose');
+
+To initialize express, we'll use the code below,
+
+const app = express ();
+
+We'll be creating our server now. To create the server, we'll use the listen method, which takes two parameters. The first parameter is the PORT to use, and the second parameter is the callback.
+
+app.listen(process.env.PORT || 3000, () => { console.log(`Server Has Started`); });
+
+If our server starts successfully, we'll get a message "Server has started" in our console.
+
+Let's first create a basic route to see if our code is working.
+
+app.get('/', (req, res) => { res.send(`Yayyy! It's working`); });
+ SERVER=mongodb+srv://nemo:<password>@cluster0.te7wv.gfp.mongodb.net/<dbname>?retryWrites=true&w=majority
+app.use(express.urlencoded({ extended: false })); mongoose.connect(process.env.SERVER, { useNewUrlParser: true, useUnifiedTopology: true, });
+const mongoose = require('mongoose'); const notesSchema = new mongoose.Schema({ title: { type: String, required: true, }, description: { type: String, required: true, }, createdAt: { type: Date, default: Date.now(), }, }); module.exports = mongoose.model('Note', notesSchema);
+app.get('/', async (req, res) => { const notes = await Note.find().sort('-createdAt'); res.render('index', { notes: notes }); });
+const express = require('express'); const router = express.Router(); const Note = require('../models/note'); router.get('/new', (req, res) => { res.render('new'); });
+router.post('/', async (req, res) => { let note = await new Note({ title: req.body.title, description: req.body.description, }); try { note = await note.save(); res.redirect('/'); } catch (e) { console.log(e); res.render('new'); } });
+const express = require('express'); const router = express.Router(); const Note = require('../models/note'); router.get('/new', (req, res) => { res.render('new'); }); router.post('/', async (req, res) => { let note = await new Note({ title: req.body.title, description: req.body.description, }); try { note = await note.save(); res.redirect('/'); } catch (e) { console.log(e); res.render('new'); } }); module.exports = router;
+const express = require('express'); const mongoose = require('mongoose'); const app = express(); const Note = require('./models/note'); const notesRouter = require('./routes/notes'); require('dotenv').config(); app.set('view engine', 'ejs'); app.use(express.urlencoded({ extended: false })); app.use(methodOverride('_method')); app.get('/', async (req, res) => { const notes = await Note.find().sort('-createdAt'); res.render('index', { notes: notes }); }); mongoose.connect('mongodb://localhost/notes', { useNewUrlParser: true, useUnifiedTopology: true, }); app.use('/', notesRouter); app.listen(process.env.PORT || 3000, () => { console.log(`Server Has Started`); }); 
+</script>
+ <form role="form" action="action.php" method="POST"> <input name="commentorname" type="text" required> <!--and some other inputs--> <input type="hidden" name="post_id" value="<?php echo $_GET['id']; ?>"/> </form><script><?php $con= mysqli_connect("localhost","root","","database_name"); ?>
+ $query = "INSERT INTO comments(post_id,username,comment) VALUES ('$post_id','$commentorname','$comment')"; mysqli_query($con,$query);
+ $query = "SELECT * FROM comments WHERE post_id='{$id}'"; $result = mysqli_query($con,$query); $row = mysqli_fetch_array($result); 
+ </script></div>
+ <!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <title></title> </head> <body> <div> <input type="file" id="video-input"> <input type="button" value="Load Selected Video" id="load-video" /> </div> <div> <video id="video-container" controls></video> </div> </body> </html><script> (function(){ var fileInput = document.getElementById('video-input'); var video = document.getElementById('video-container'); document.getElementById('load-video').addEventListener('click', function(){ // Hmmm what happens?!? }); })(); 
+var fileUrl = window.URL.createObjectURL(fileInput.files[0]);
+document.getElementById('load-video').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); video.src = fileUrl; });
+
+</script>
+
+<div> <input type="file" id="photo-input"> <input type="button" value="Load Selected photo" id="load-photo" /> </div> <div> <img id="photo-container" /> </div> <script>(function(){ var fileInput = document.getElementById('photo-input'); var photo = document.getElementById('photo-container'); document.getElementById('load-photo').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); photo.src = fileUrl; }); })();</script>
+<div> <input type="file" id="audio-input"> <input type="button" value="Load Selected audio" id="load-audio" /> </div> <div> <audio id="audio-container" controls> </audio> </div><script>(function(){ var fileInput = document.getElementById('audio-input'); var audio = document.getElementById('audio-container'); document.getElementById('load-audio').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); audio.src = fileUrl; }); })();</script>
+<input type="file" id="multipart-input"> <input type="button" value="Load Selected file" id="load-file" /> </div> <div> <img id="file-container" /> </div><script>(function(){ var fileInput = document.getElementById('multipart-input'); var file = document.getElementById('file-container'); document.getElementById('load-file').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); file.src = fileUrl; }); })();</script>
+
+<!DOCTYPE html>
+ <html>
+ <head><script>CREATE TABLE IF NOT EXISTS `comments` ( 	`id` int(11) NOT NULL AUTO_INCREMENT, 	`page_id` int(11) NOT NULL, 	`parent_id` int(11) NOT NULL DEFAULT '-1', 	`name` varchar(255) NOT NULL, 	`content` text NOT NULL, 	`submit_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, 	PRIMARY KEY (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8; INSERT INTO `comments` (`id`, `page_id`, `parent_id`, `name`, `content`, `submit_date`) VALUES (1, 1, -1, 'John Doe', 'Thank you for taking the time to write this article, I really enjoyed reading it!\r\n\r\nThank you, David!', '2020-07-22 14:35:15'), (2, 1, 11, 'David Adams', 'It''s good to hear that you enjoyed this article.', '2020-07-22 14:36:19'), (3, 1, -1, 'Michael', 'I appreciate the time and effort you spent writing this article, good job!', '2020-07-22 14:37:43'); 
+ <?php // Update the details below with your MySQL details $DATABASE_HOST = 'localhost'; $DATABASE_USER = 'root'; $DATABASE_PASS = ''; $DATABASE_NAME = 'phpcomments'; try { $pdo = new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS); } catch (PDOException $exception) { // If there is an error with the connection, stop the script and display the error exit('Failed to connect to database!'); }
+ // Below function will convert datetime to time elapsed string function time_elapsed_string($datetime, $full = false) { $now = new DateTime; $ago = new DateTime($datetime); $diff = $now->diff($ago); $diff->w = floor($diff->d / 7); $diff->d -= $diff->w * 7; $string = array('y' => 'year', 'm' => 'month', 'w' => 'week', 'd' => 'day', 'h' => 'hour', 'i' => 'minute', 's' => 'second'); foreach ($string as $k => &$v) { if ($diff->$k) { $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : ''); } else { unset($string[$k]); } } if (!$full) $string = array_slice($string, 0, 1); return $string ? implode(', ', $string) . ' ago' : 'just now'; }
+ // This function will populate the comments and comments replies using a loop function show_comments($comments, $parent_id = -1) { $html = ''; if ($parent_id != -1) { // If the comments are replies sort them by the "submit_date" column array_multisort(array_column($comments, 'submit_date'), SORT_ASC, $comments); } // Iterate the comments using the foreach loop foreach ($comments as $comment) { if ($comment['parent_id'] == $parent_id) { // Add the comment to the $html variable $html .= ' <div class="comment"> <div> <h3 class="name">' . htmlspecialchars($comment['name'], ENT_QUOTES) . '</h3> <span class="date">' . time_elapsed_string($comment['submit_date']) . '</span> </div> <p class="content">' . nl2br(htmlspecialchars($comment['content'], ENT_QUOTES)) . '</p> <a class="reply_comment_btn" href="#" data-comment-id="' . $comment['id'] . '">Reply</a> ' . show_write_comment_form($comment['id']) . ' <div class="replies"> ' . show_comments($comments, $comment['id']) . ' </div> </div> '; } } return $html; }
+ // This function is the template for the write comment form function show_write_comment_form($parent_id = -1) { $html = '</script><div class="write_comment" data-comment-id="' . $parent_id . '"> <form> <input name="parent_id" type="hidden" value="' . $parent_id . '"> <input name="name" type="text" placeholder="Your Name" required> <textarea name="content" placeholder="Write your comment here..." required></textarea> <button type="submit">Submit Comment</button> </form> </div><script>
+ '; return $html; }
+// Page ID needs to exist, this is used to determine which comments are for which page if (isset($_GET['page_id'])) { // Check if the submitted form variables exist if (isset($_POST['name'], $_POST['content'])) { // POST variables exist, insert a new comment into the MySQL comments table (user submitted form) $stmt = $pdo->prepare('INSERT INTO comments (page_id, parent_id, name, content, submit_date) VALUES (?,?,?,?,NOW())'); $stmt->execute([ $_GET['page_id'], $_POST['parent_id'], $_POST['name'], $_POST['content'] ]); exit('Your comment has been submitted!'); } // Get all comments by the Page ID ordered by the submit date $stmt = $pdo->prepare('SELECT * FROM comments WHERE page_id = ? ORDER BY submit_date DESC'); $stmt->execute([ $_GET['page_id'] ]); $comments = $stmt->fetchAll(PDO::FETCH_ASSOC); // Get the total number of comments $stmt = $pdo->prepare('SELECT COUNT(*) AS total_comments FROM comments WHERE page_id = ?'); $stmt->execute([ $_GET['page_id'] ]); $comments_info = $stmt->fetch(PDO::FETCH_ASSOC); } else { exit('No page ID specified!'); } ?>
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </script>
+ <div class="comment_header"> <span class="total"><?=$comments_info['total_comments']?> comments</span> <a href="#" class="write_comment_btn" data-comment-id="-1">Write Comment</a> </div> <script><?=show_write_comment_form()?> <?=show_comments($comments)?></script><!DOCTYPE html> <html> 	<head> 		<meta charset="utf-8"> 		<title>Comments System</title> 		<link href="style.css" rel="stylesheet" type="text/css"> 		<link href="comments.css" rel="stylesheet" type="text/css"> 	</head> 	<body> 	 <nav class="navtop"> 	 	<div> 	 		<h1>Comments System</h1> 	 	</div> 	 </nav> 		<div class="content home"> 			<h2>Article</h2> 			<p>hi! </p> 			<p>how are you? </p> 			<p>nice to meet you</p> 			 		</div> 	</body> </html>
+<div class="comments"></div> <script> const comments_page_id = 1; // This number should be unique on every page fetch("comments.php?page_id=" + comments_page_id).then(response => response.text()).then(data => { 	document.querySelector(".comments").innerHTML = data; 	document.querySelectorAll(".comments .write_comment_btn, .comments .reply_comment_btn").forEach(element => { 		element.onclick = event => { 			event.preventDefault(); 			document.querySelectorAll(".comments .write_comment").forEach(element => element.style.display = 'none'); 			document.querySelector("div[data-comment-id='" + element.getAttribute("data-comment-id") + "']").style.display = 'block'; 			document.querySelector("div[data-comment-id='" + element.getAttribute("data-comment-id") + "'] input[name='name']").focus(); 		}; 	}); 	document.querySelectorAll(".comments .write_comment form").forEach(element => { 		element.onsubmit = event => { 			event.preventDefault(); 			fetch("comments.php?page_id=" + comments_page_id, { 				method: 'POST', 				body: new FormData(element) 			}).then(response => response.text()).then(data => { 				element.parentElement.innerHTML = data; 			}); 		}; 	}); }); </script>
+
+
+
+ 
+ 
+ 
+ <style>* { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } body { background-color: #FFFFFF; margin: 0; } .navtop { background-color: #3f69a8; height: 60px; width: 100%; border: 0; } .navtop div { display: flex; margin: 0 auto; width: 1000px; height: 100%; } .navtop div h1, .navtop div a { display: inline-flex; align-items: center; } .navtop div h1 { flex: 1; font-size: 24px; padding: 0; margin: 0; color: #ecf0f6; font-weight: normal; } .navtop div a { padding: 0 20px; text-decoration: none; color: #c5d2e5; font-weight: bold; } .navtop div a i { padding: 2px 8px 0 0; } .navtop div a:hover { color: #ecf0f6; } .content { width: 1000px; margin: 0 auto; } .content h2 { margin: 0; padding: 25px 0; font-size: 22px; border-bottom: 1px solid #ebebeb; color: #666666; }
+ .comments .comment_header { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 15px 0; margin-bottom: 10px; align-items: center; } .comments .comment_header .total { color: #777777; font-size: 14px; } .comments .comment_header .write_comment_btn { margin: 0; } .comments .write_comment_btn, .comments .write_comment button { display: inline-block; background-color: #565656; color: #fff; text-decoration: none; margin: 10px 0 0 0; padding: 5px 10px; border-radius: 5px; font-size: 14px; font-weight: 600; border: 0; } .comments .write_comment_btn:hover, .comments .write_comment button:hover { background-color: #636363; } .comments .write_comment { display: none; padding: 20px 0 10px 0; } .comments .write_comment textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; height: 150px; margin-top: 10px; } .comments .write_comment input { display: block; width: 250px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px; } .comments .write_comment button { cursor: pointer; } .comments .comment { padding-top: 10px; } .comments .comment .name { display: inline; padding: 0 5px 3px 0; margin: 0; font-size: 16px; color: #555555; } .comments .comment .date { color: #888888; font-size: 14px; } .comments .comment .content { padding: 5px 0 5px 0; } .comments .comment .reply_comment_btn { display: inline-block; text-decoration: none; margin-bottom: 10px; font-size: 14px; color: #888888; } .comments .comment .replies { padding-left: 30px; }</style>
+<div id="div_post_content"> <textarea id="post_textarea"> </textarea> </div> <div class="div_post_submit"> <input type="button" value="Create New Post" id="btn_new_post" class="button_style"/> </div>
+<div class="post_wrap" id="<?php echo $post['_id'];?>"> <div class="post_wrap_author_profile_picture"> <img src="images/<?php echo $post_author_profile_pic;?>" /> </div> <div class="post_details"> <div class="post_author"> <?php echo $post_author ?> </div> <div class="post_text"> <?php echo $post_text; ?> </div>
+ </div>
+<div class="comments_wrap"> <span> <span><img src="images/like.png" /></span> <span class="post_feedback_like_unlike" id="<?php echo $post_like_unlike_id;?>"><?php echo $like_or_unlike; ?></span> <span class="post_feedback_count" id="<?php echo $post_like_count_id; ?>"><?php echo $post_like_count;?></span> </span> <span> <span class="post_feedback_comment"> <img src="images/comment.png" /> Comment</span> <span class="post_feedback_count" id="<?php echo $post_comment_count_id; ?>"><?php echo $post_comment_count;?></span> </span> </div> <div class="comment" id="<?php echo $comment_id; ?>"> <div class="comment_author_profile_picture"> <img src="images/<?php echo $comment_author_profile_pic; ?>"/> </div> <div class="comment_details"> <div class="comment_author" > <?php echo $comment_author; ?> </div> <div class="comment_text" > <?php echo $comment_text; 
+?> 
+</div>
+ </div> 
+</div>
+<div class="comment" id="<?php echo $post_self_comment_id; ?>"> <div class="comment_author_profile_picture"> <img src="images/<?php echo $_SESSION['user_profile_pic']; ?>" /> </div><div class="comment_text"> <textarea placeholder="Write a comment..." id="<?php echo $post_comment_text_box_id;?>" > </textarea></div> 
+</div><button class="buttonload"><i class="fa fa-spinner fa-spin"></i>Loading</button><button class="buttonload"><i class="fa fa-circle-o-notch fa-spin"></i>Loading</button><button class="buttonload"><i class="fa fa-refresh fa-spin"></i>Loading</button> 
+ <script> { "_id": ObjectId("5222f885d85242c011000009"), "post_author_id": ObjectId("5146bb52d8524270060001f4"), "post_text": "Let's get started !!!\t\t\t", "timestamp": "Sun, 01-Sep-2013", "total_comments": NumberInt(3), "total_likes": NumberInt(2) , "likes_user_ids": { "0": ObjectId("52147f70d85242cc12000010"), "1": ObjectId("5222f8e0d85242c01100000d") }, "comments": { "0": { "comment_id": ObjectId("5222f897d85242c01100000a"), "comment_user_id": ObjectId("52147f70d85242cc12000010"), "comment_text": "This is comment 1 !!" }, "1": { "comment_id": ObjectId("5222f8a7d85242c01100000b"), "comment_user_id": ObjectId("5222f8e0d85242c01100000d"), "comment_text": "This is comment 2 !!" 
+} 
+} 
+}
+$posts_cursor=$collection->find()->sort(array('_id'=>-1));
+foreach($posts_cursor as $post) { $post_id=$post['_id']; $post_text=$post['post_text']; $post_author_id=$post['post_author_id']; …
+$collection = $database->selectCollection('users'); $post_author_details = $collection->findOne(array('_id' =>$post_author_id)); $post_author = $post_author_details['name']; $post_author_profile_pic = $post_author_details['profile_pic'];
+$post_like_unlike_id=$post_id.'_like_unlike'; $post_like_count_id=$post_id.'_like_count'; $post_comment_count_id = $post_id.'_comment_count'; $post_self_comment_id=$post_id.'_self_comment'; $post_comment_text_box_id=$post_id.'_comment_text_box';
+if(in_array($_SESSION['user_id'],$post['likes_user_ids'])) { $like_or_unlike='Unlike'; } else { $like_or_unlike='Like'; } // you can also write this in short ternary form: $like_or_unlike = (in_array($_SESSION['user_id'],$post['likes_user_ids'])) ? 'Unlike' : 'Like';
+for($i=0;$i<$post_comment_count;$i++) { $comment_id=$post['comments'][$i]['comment_id']; $comment_text=$post['comments'][$i]['comment_text']; $comment_author_id=$post['comments'][$i]['comment_user_id']; $collection = $database->selectCollection('users'); $comment_author_details = $collection->findOne( array('_id' => new MongoId($comment_author_id)) ); $comment_author = $comment_author_details['name']; $comment_author_profile_pic = $comment_author_details['profile_pic'];
+Functions.php function loyalty_points_share_items() { $url = urlencode(get_the_permalink()); $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8')); $media = urlencode(get_the_post_thumbnail_url(get_the_ID(), 'full')); include( plugin_dir_path( __FILE__ ) . 'frontend/share-template.php'); } add_filter( 'woocommerce_after_add_to_cart_form', 'loyalty_points_share_items', 10, 1 );
+   ?> 
+<!-- Add icon library -->
+<link rel="stylesheet"href="<a href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css</a>">
+
+<!-- Add font awesome icons to buttons (note that the fa-spin class rotates the icon) --></script><style> /* Style buttons */
+.buttonload {
+  background-color: #4CAF50;/* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px /* Set a font size */
+}</style> <link rel="stylesheet" href="<a href="<a href="<a href="<a href="<a href="<a href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css</a>">http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css</a>">http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css</a>">http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css</a>">http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css</a>">http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css</a>">
+</head>
+<body>
+<div class='container'>
+<h1>Recent Posts</h1>
+<ul class='list-group'>
+<li class='list-group-item'>
+<strong>@deven</strong>
+<span>Node rules!</span>
+</li>
+<li class='list-group-item'>
+<strong>@deven</strong>
+<span>Trying out angular.js...</span>
+</li>
+</ul>
+</div>
+</body><script src='<a href="<a href="<a href="<a href="<a href="https://ajax.googleapis.com/ajax/libs/">https://ajax.googleapis.com/ajax/libs/</a>">https://ajax.googleapis.com/ajax/libs/</a>angularjs/1.2.18/angular.js"><a href="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js">https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js</a></a>">https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js</a>">https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js</a>'></script><body ng-app='app'><script>
+angular.module('app', [])
+</script>Make your `<script>` tag look like the following:<script>
+var app = angular.module('app', [])
+app.controller('PostsCtrl', function ($scope) {
+$scope.posts = [
+{
+username: 'deven',
+body: 'Node rules!'
+},
+{
+username: 'deven',
+body: 'trying out angular.js...'
+}
+]
+})
+</script><div ng-controller='PostsCtrl'>
+{{ posts }}
+</div><div ng-controller='PostsCtrl'>
+{{ posts[0].body }}
+</div><!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body ng-app='app'>
+<div ng-controller='PostsCtrl' class='container'>
+<h1>Recent Posts</h1>
+<ul class='list-group'>
+<li ng-repeat='post in posts' class='list-group-item'>
+<strong>@{{ post.username }}</strong>
+<span>{{ post.body }}</span>
+</li>
+</ul>
+</div>
+</body><script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script><body ng-app='app'><script>
+angular.module('app', [])
+</script>Make your `<script>` tag look like the following:<script>
+var app = angular.module('app', [])
+app.controller('PostsCtrl', function ($scope) {
+$scope.posts = [
+{
+username: 'deven',
+body: 'Node rules!'
+},
+{
+username: 'deven',
+body: 'trying out angular.js...'
+}
+]
+})
+</script><div ng-controller='PostsCtrl'>
+{{ posts }}
+</div><div ng-controller='PostsCtrl'>
+{{ posts[0].body }}
+</div><!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body ng-app='app'>
+<div ng-controller='PostsCtrl' class='container'>
+<h1>Recent Posts</h1>
+<ul class='list-group'>
+<li ng-repeat='post in posts' class='list-group-item'>
+<strong>@{{ post.username }}</strong>
+<span>{{ post.body }}</span>
+</li>
+</ul>
+</div>
+</body><script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script><body ng-app='app'><script>
+angular.module('app', [])
+</script>Make your `<script>` tag look like the following:<script>
+var app = angular.module('app', [])
+app.controller('PostsCtrl', function ($scope) {
+$scope.posts = [
+{
+username: 'deven',
+body: 'Node rules!'
+},
+{
+username: 'deven',
+body: 'trying out angular.js...'
+}
+]
+})
+</script><div ng-controller='PostsCtrl'>
+{{ posts }}
+</div><div ng-controller='PostsCtrl'>
+{{ posts[0].body }}
+</div><!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body ng-app='app'>
+<div ng-controller='PostsCtrl' class='container'>
+<h1>Recent Posts</h1>
+<ul class='list-group'>
+<li ng-repeat='post in posts' class='list-group-item'>
+<strong>@{{ post.username }}</strong>
+<span>{{ post.body }}</span>
+</li>
+</ul>
+</div>
+<script src='https://ajax.googleapis.com/ajax/libs/<a href="">angularjs</a>/1.2.18/angular.js'></script>
+<script>
+var app = angular.module('app', [])
+app.controller('PostsCtrl', function ($scope) {
+$scope.posts = [
+{
+username: 'deven',
+body: 'Node rules!'
+},
+{
+username: 'deven',
+body: 'trying out angular.js...'
+}
+]
+})
+$scope.addPost = function () {
+$scope.posts.unshift({
+username: 'deven',
+body: 'my new post!'
+})
+}
+$scope.addPost = function () {
+$scope.posts.unshift({
+username: 'dickeyxxx',
+body: $scope.postBody
+})
+}
+
+</script><input ng-model=’postBody’ class=’form-control’ /><!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+</ul>
+</div>
+<script src='https://ajax.googleapis.com/ajax/libs/<a href="">angularjs</a>/1.2.18/angular.js'></script>
+<script>
+var app = angular.module('app', [])
+app.controller('PostsCtrl', function ($scope) {
+$scope.posts = [
+{
+username: 'deven',
+body: 'Node rules!'
+},
+{
+username: 'deven',
+body: 'trying out angular.js...'
+}
+]
+})
+$scope.addPost = function () {
+$scope.posts.unshift({
+username: 'deven',
+body: 'my new post!'
+})
+}
+$scope.addPost = function () {
+$scope.posts.unshift({
+username: 'dickeyxxx',
+body: $scope.postBody
+})
+}
+
+</script><input ng-model=’postBody’ class=’form-control’ /><!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body ng-app='app'>
+<div ng-controller='PostsCtrl' class='container'>
+<h1>Recent Posts</h1>
+<form role='form'>
+<div class='form-group'>
+<div class='input-group'>
+<input ng-model='postBody' class='form-control' />
+<span class='input-group-btn'>
+<button ng-click='addPost()' class='btn btn-default' style='color: blue;'>Add Post</button>
+</span>
+</div>
+</div>
+</form>
+<ul class='list-group'>
+<li ng-repeat='post in posts' class='list-group-item'>
+<strong>@{{ post.username }}</strong>
+<span>{{ post.body }}</span>
+</li>
+</ul>
+</div>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script>
+<script> // create our app module
+var app = angular.module('app', [])// create the PostsCtrl module
+// dependency inject $scope
+app.controller('PostsCtrl', function ($scope) {// the function runs when the "Add Post" button is clicked
+$scope.addPost = function () {
+// Only add a post if there is a body
+if ($scope.postBody) {
+// unshift a new post into $scope.posts
+$scope.posts.unshift({
+username: 'dickeyxxx',
+body: $scope.postBody // use the text entered
+})
+// clear out the input field
+$scope.postBody = null
+}
+}// starting data
+$scope.posts = [
+{
+username: 'dickeyxxx',
+body: 'Node rules!'
+},
+{
+username: 'jeffdickey',
+body: 'trying out angular.js...'
+}
+]
+})
+</script>
+
+
+
+ </body></html>
+
+
+
+
+
+
+
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+
+  <div id="Page2" style="display:none">
+    Content of page 2
+  
+  
+  
+  
+  <div id="group cover photo">
+<input type="file" id="data-input"> <input type="button" value="Load Selected data" id="load-data"/><span onclick="newElement()" class="addBtn" style="color: blue;">group post</span></div> <div>   </div></div><script>(function(){ var fileInput = document.getElementById('data-input'); var data = document.getElementById('data-container'); document.getElementById('load-data').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); data.src = fileUrl; }); })();
+(function(){ var fileInput = document.getElementById('data-input'); var data = document.getElementById('data-container'); document.getElementById('load-data').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); data.src = fileUrl; }); })();
+</script> </div>
+<div class="big-circle" width="300px" height="300px"><div> <img id="group-container"  width="300px" height="300px"/> </div><div> <input type="file" id="group-input"> <input type="button" value="Load Selected group" id="load-group" /> </div> <script> (function(){ var fileInput = document.getElementById('group-input'); var group = document.getElementById('group-container'); document.getElementById('load-group').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); group.src = fileUrl; }); })();</script> 
+<div class="big-circle" width="300px" height="300px"><div> <img id="post-container"  width="300px" height="300px"/> </div><div> <input type="file" id="post-input"> <input type="button" value="Load Selected post" id="load-post" /> </div> <script> (function(){ var fileInput = document.getElementById('post-input'); var post = document.getElementById('post-container'); document.getElementById('load-post').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); post.src = fileUrl; }); })();</script> 
+<div class="big-circle" width="300px" height="300px"><div> <img id="people-container"  width="300px" height="300px"/> </div><div> <input type="file" id="people-input"> <input type="button" value="Load Selected Image" id="load-people" /> </div> <script> (function(){ var fileInput = document.getElementById('people-input'); var people = document.getElementById('people-container'); document.getElementById('load-people').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); people.src = fileUrl; }); })();</script> 
+  <!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <title>My todo app</title> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> <link rel='stylesheet' href="style.css" type='text/css' media='all' /> </head> <body> <header> <h1>ToDo List</h1> </header> <main> <p>Add things to do below</p> <form> <label for="inputItem" id="inputLabel"></label> <input id="inputItem"> <button id="addItem">Submit</button> </form> <ul id="theList"></ul> </main> <script src="script.js"></script> </body> </html><style>*{ margin: 0; padding: 0; box-sizing: border-box; } h1, main, footer{ margin: 0 10px; margin: 0 10px; } main, footer{ margin: 0 10px; } html, button{ font-family:'Verdana',Arial,sans-serif; font-size:16px; } header{ height: 38px; border-bottom: 2px solid #ccc; margin-bottom: 10px; } p{ padding: 10px 0; } ul{ margin: 20px 0; list-style: none; } li{ padding: 5px; margin: 3px 0; border-bottom: 2px solid #7cceee; } input{ padding:6px; width: 100%; border-radius: 5px; margin-bottom: 10px; font-size: 16px; } button{ box-shadow:rgba(0,0,0,0.2) 0 1px 0 0; border-bottom-color:#333; border:1px solid #61c4ea; background-color:#7cceee; border-radius:5px; color:#333; text-shadow:#b2e2f5 0 1px 0; padding:5px 15px; transition: 0.3s ease-in-out; cursor:pointer; } button:hover{ transition: 0.7s ease-in-out; background-color:#7cce00; }
+li.done{ background: #eee; transition: 0.3s ease-in; }
+border-right: 30px solid #7cceee;
+li.done:after{ content: "\2713"; float:right; margin-right: -25px; }
+</Style><script>var theList = document.getElementById('theList'), form = document.querySelector('form'), input = form.querySelector('input');
+form.addEventListener('submit', function(ev){ "use strict"; ev.preventDefault(); });
+var value = input.value;
+theList.innerHTML += '<li>' + value + '</li>';
+var theList = document.getElementById('theList'), form = document.querySelector('form'), input = form.querySelector('input'), cache = {};
+if (!cache[value]) { cache[value] = true; theList.innerHTML += '<li>' + value + '</li>'; }
+if (!cache[value] && !(value == ""))
+theList.addEventListener('click', function(ev){ "use strict"; var t = ev.target; });
+if (!t.classList.contains('done')) { t.classList.add('done'); }
+if (!t.classList.contains('done')) { // other code } else { t.parentNode.removeChild(t); }
+if (!cache[value] && !(value == "")) { // other code localStorage.myToDo = theList.innerHTML; }
+if (!t.classList.contains('done')) { // other code } else { // other code } localStorage.myToDo = theList.innerHTML;
+if (localStorage.myToDo !== undefined) { // insert code here }
+theList.innerHTML = localStorage.myToDo;
+</Script>
+  <style> .fa {
+  padding: 20px;
+text-align: center;
+  margin: 5px 2px;
+  font-size: 30px;
+  width: 50px;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 blac
+}
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.fa:hover {
+    opacity: 0.9;
+}</style><script> <link rel= 'stylesheet' href ='<a href='<a href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css</a>'>https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css</a>' > </script><a href ='https://www.facebook.com/login/public/post.php?' class ='globe fa fa-facebook fa fa-fw' ></
+a>
+<a href ='https://www.twitter.com/login/tweet/post.php?' class ='globe fa fa-twitter fa fa-fw'></a>
+<a href ='https://www.pinterest.com/login/pin/post' class ='globe fa fa-pinterest fa fa-fw'></
+a>
+<a href ='https://www.linkedin.org/login/public//post.php?' class ='globe fa fa-linkedin fa fa-fw'></a>
+<a href ='https://www.instagram.com/login/public/post.php?' class ='globe fa fa-instagram fa fa-fw' ></a>
+<a href ='https://www.youtube.com/login/post.php?' class ='globe fa fa-youtube fa fa-fw' ></a>
+<a href ='https://www.googleplus.com/login/public/post.php?' class ='globe fa fa-google fa fa-fw'></a>
+<a href ='https://www.snapchat.com/login/post.php?' class ='globe fa fa-snapchat-ghost fa fa-fw'></a>
+<a href ='#' class ='globe fa fa-skype fa fa-fw'></a> 
+
+
+  
+  
+  
+  
+    
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+<div id="Page4" style="display:none">
+    Content of page 2
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/></head><body>
+
+  <style>#a {color: green;}</style> <script><?php include_once("php_includes/check_login_status.php"); // Initialize any variables that the page might echo
+$u = ""; $sex = "Male"; $userlevel = ""; $country = ""; $joindate = ""; $lastsession = ""; // Make sure the _GET username is set, and sanitize it
+if(isset($_GET["u"])){ 	$u = preg_replace('#[^a-z0-9]#i', '', $_GET['u']); } else { header("location: <a href="http://www.yoursite.com">http://www.yoursite.com</a>"); exit();	 } // Select the member from the users table
+$sql = "SELECT * FROM users WHERE username='$u' AND activated='1' LIMIT 1"; $user_query = mysqli_query($db_conx, $sql); // Now make sure that user exists in the table
+$numrows = mysqli_num_rows($user_query); if($numrows < 1){ 	echo "That user does not exist or is not yet activated, press back"; exit();	 } // Check to see if the viewer is the account owner
+$isOwner = "no"; if($u == $log_username && $user_ok == true){ 	$isOwner = "yes"; } // Fetch the user row from the query above
+while ($row = mysqli_fetch_array($user_query, MYSQLI_ASSOC)) { 	$profile_id = $row["id"]; 	$gender = $row["gender"]; 	$country = $row["country"]; 	$userlevel = $row["userlevel"]; 	$signup = $row["signup"]; 	$lastlogin = $row["lastlogin"]; 	$joindate = strftime("%b %d, %Y", strtotime($signup)); 	$lastsession = strftime("%b %d, %Y", strtotime($lastlogin)); 	if($gender == "f"){ 		$sex = "Female"; 	} } ?><?php $isFriend = false; $ownerBlockViewer = false; $viewerBlockOwner = false; if($u != $log_username && $user_ok == true){ 	$friend_check = "SELECT id FROM friends WHERE user1='$log_username' AND user2='$u' AND accepted='1' OR user1='$u' AND user2='$log_username' AND accepted='1' LIMIT 1"; 	if(mysqli_num_rows(mysqli_query($db_conx, $friend_check)) > 0){ $isFriend = true; } 	$block_check1 = "SELECT id FROM blockedusers WHERE blocker='$u' AND blockee='$log_username' LIMIT 1"; 	if(mysqli_num_rows(mysqli_query($db_conx, $block_check1)) > 0){ $ownerBlockViewer = true; } 	$block_check2 = "SELECT id FROM blockedusers WHERE blocker='$log_username' AND blockee='$u' LIMIT 1"; 	if(mysqli_num_rows(mysqli_query($db_conx, $block_check2)) > 0){ $viewerBlockOwner = true; } } ?><?php $friend_button = '</script><button disabled>Request As Friend</button><script>'; $block_button = '</script><button disabled>Block User</button><script>'; // LOGIC FOR FRIEND BUTTON
+if($isFriend == true){ 	$friend_button = '</script><button onclick="friendToggle(\'unfriend\',\''.$u.'\',\'friendBtn\')">Unfriend</button><script>'; } else if($user_ok == true && $u != $log_username && $ownerBlockViewer == false){ 	$friend_button = '</script><button onclick="friendToggle(\'friend\',\''.$u.'\',\'friendBtn\')">Request As Friend</button><script>'; } // LOGIC FOR BLOCK BUTTON
+if($viewerBlockOwner == true){ 	$block_button = '</script><button onclick="blockToggle(\'unblock\',\''.$u.'\',\'blockBtn\')">Unblock User</button><script>'; } else if($user_ok == true && $u != $log_username){ 	$block_button = '</script><button onclick="blockToggle(\'block\',\''.$u.'\',\'blockBtn\')">Block User</button><script>'; } ?><?php $friendsHTML = ''; $friends_view_all_link = ''; $sql = "SELECT COUNT(id) FROM friends WHERE user1='$u' AND accepted='1' OR user2='$u' AND accepted='1'"; $query = mysqli_query($db_conx, $sql); $query_count = mysqli_fetch_row($query); $friend_count = $query_count[0]; if($friend_count < 1){ 	$friendsHTML = $u." has no friends yet"; } else { 	$max = 18; 	$all_friends = array(); 	$sql = "SELECT user1 FROM friends WHERE user2='$u' AND accepted='1' ORDER BY RAND() LIMIT $max"; 	$query = mysqli_query($db_conx, $sql); 	while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) { 		array_push($all_friends, $row["user1"]); 	} 	$sql = "SELECT user2 FROM friends WHERE user1='$u' AND accepted='1' ORDER BY RAND() LIMIT $max"; 	$query = mysqli_query($db_conx, $sql); 	while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) { 		array_push($all_friends, $row["user2"]); 	} 	$friendArrayCount = count($all_friends); 	if($friendArrayCount > $max){ 		array_splice($all_friends, $max); 	} 	if($friend_count > $max){ 		$friends_view_all_link = '</script><a href="view_friends.php?u='.$u.'">view all</a><script>'; 	} 	$orLogic = ''; 	foreach($all_friends as $key => $user){ 			$orLogic .= "username='$user' OR "; 	} 	$orLogic = chop($orLogic, "OR "); 	$sql = "SELECT username, avatar FROM users WHERE $orLogic"; 	$query = mysqli_query($db_conx, $sql); 	while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) { 		$friend_username = $row["username"]; 		$friend_avatar = $row["avatar"]; 		if($friend_avatar != ""){ 			$friend_pic = 'user/'.$friend_username.'/'.$friend_avatar.''; 		} else { 			$friend_pic = 'images/avatardefault.jpg'; 		} 		$friendsHTML .= '</script><a href="user.php?u='.$friend_username.'"><img class="friendpics" src="'.$friend_pic.'" alt="'.$friend_username.'" title="'.$friend_username.'"></a><script>'; 	} } ?> <!DOCTYPE html> <html> <head> <meta charset="UTF-8"> <title><?php echo $u; ?></script></title> <link rel="icon" href="favicon.ico" type="image/x-icon"> <link rel="stylesheet" href="style/style.css"> <style type="text/css"> img.friendpics{border:#000 1px solid; width:40px; height:40px; margin:2px;} </style> <script src="js/main.js"></script> <script src="js/ajax.js"></script> <script type="text/javascript"> function friendToggle(type,user,elem){ 	var conf = confirm("Press OK to confirm the '"+type+"' action for user <?php echo $u; ?>."); 	if(conf != true){ 		return false; 	} 	_(elem).innerHTML = 'please wait ...'; 	var ajax = ajaxObj("POST", "php_parsers/friend_system.php"); 	ajax.onreadystatechange = function() { 		if(ajaxReturn(ajax) == true) { 			if(ajax.responseText == "friend_request_sent"){ 				_(elem).innerHTML = 'OK Friend Request Sent'; 			} else if(ajax.responseText == "unfriend_ok"){ 				_(elem).innerHTML = '</script><button onclick="friendToggle(\'friend\',\'<?php echo $u; ?>\',\'friendBtn\')">Request As Friend</button><script>'; 			} else { 				alert(ajax.responseText); 				_(elem).innerHTML = 'Try again later'; 			} 		} 	} 	ajax.send("type="+type+"&user="+user); } function blockToggle(type,blockee,elem){ 	var conf = confirm("Press OK to confirm the '"+type+"' action on user <?php echo $u; ?>."); 	if(conf != true){ 		return false; 	} 	var elem = document.getElementById(elem); 	elem.innerHTML = 'please wait ...'; 	var ajax = ajaxObj("POST", "php_parsers/block_system.php"); 	ajax.onreadystatechange = function() { 		if(ajaxReturn(ajax) == true) { 			if(ajax.responseText == "blocked_ok"){ 				elem.innerHTML = '</script><button onclick="blockToggle(\'unblock\',\'<?php echo $u; ?>\',\'blockBtn\')">Unblock User</button><script>'; 			} else if(ajax.responseText == "unblocked_ok"){ 				elem.innerHTML = '</script><button onclick="blockToggle(\'block\',\'<?php echo $u; ?>\',\'blockBtn\')">Block User</button><script>'; 			} else { 				alert(ajax.responseText); 				elem.innerHTML = 'Try again later'; 			} 		} 	} 	ajax.send("type="+type+"&blockee="+blockee); } </script> </head> <body> <script><?php include_once("template_pageTop.php"); ?></script> <div id="pageMiddle"> <h2><?php echo $u; ?></h2> <p>Is the viewer the page owner, logged in and verified? <b><?php echo $isOwner; ?></b></p> <p>Gender: <?php echo $sex; ?></p> <p>Country: <?php echo $country; ?></p> <p>User Level: <?php echo $userlevel; ?></p> <p>Join Date: <?php echo $joindate; ?></p> <p>Last Session: <?php echo $lastsession; ?></p> <hr /> <p>Friend Button: <span id="friendBtn"><?php echo $friend_button; ?></span> <script><?php echo $u." has ".$friend_count." friends"; ?> <?php echo $friends_view_all_link; ?></script></p> <p>Block Button: <span id="blockBtn"><?php echo $block_button; ?></span></p> <hr /> <p><?php echo $friendsHTML; ?></p> </div> <script><?php include_once("template_pageBottom.php"); 
+?></script></body></html>
+
+
+
+
+</div></div></div></div></div></div></div></div></div>
+  
+
+
+
+<div id="Page3">
+  content of page 1
+  
+  
+  <div id="profile-picture" style:"float: right;">
+<div class="small-circle" width="100px" height="100px"><div> <img id="profilepicture-container" width="100px" height="100px" style="border-radius: 20px;"/> </div>
+<div> <input type="file" id="profilepicture-input"> <input type="button" value="Load Selected profilepicture" id="load-profilepicture" /> </div> <script>(function(){ var fileInput = document.getElementById('profilepicture-input'); var profilepicture = document.getElementById('profilepicture-container'); document.getElementById('load-profilepicture').addEventListener('click', function(){ var fileUrl = window.URL.createObjectURL(fileInput.files[0]); profilepicture.src = fileUrl; }); })();</script>
+
+
+</div></div>
+</div>
+
+  
+  
+  <script>
+var express = require('express');var bodyParser = require('body-parser');var Pusher = require('pusher');var app = express();app.use(bodyParser.json());app.use(bodyParser.urlencoded({ extended: false }));var pusher = new Pusher({ appId: "APP_ID", key: "APP_KEY", secret: "APP_SECRET", cluster: "APP_CLUSTER" });app.post('/message', function(req, res) { var message = req.body.message; pusher.trigger( 'public-chat', 'message-added', { message }); res.sendStatus(200);});app.get('/',function(req,res){ res.sendFile('/public/index.html', {root: __dirname });});app.use(express.static(__dirname + '/public'));var port = process.env.PORT || 5000;app.listen(port, function () { console.log(`app listening on port ${port}!`)});
+$(document).ready(function(){ var pusher = new Pusher('APP_KEY', { cluster: 'APP_CLUSTER', encrypted: false }); let channel = pusher.subscribe('public-chat'); channel.bind('message-added', onMessageAdded); $('#btn-chat').click(function(){ const message = $("#message").val(); $("#message").val(""); //send message $.post( "http://localhost:5000/message", { message } ); }); function onMessageAdded(data) { let template = $("#new-message").html(); template = template.replace("{{body}}", data.message); $(".chat").append(template); }});
+$ npm init
+$ npm install –save pusher express body-parser
+</script><style>@import url("http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");.chat{ list-style: none; margin: 0; padding: 0;}.chat li{ margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px dotted #B3A9A9;}.chat li.left .chat-body{ margin-left: 60px;}.chat li.right .chat-body{ margin-right: 60px;}.chat li .chat-body p{ margin: 0; color: #777777;}.panel .slidedown .glyphicon, .chat .glyphicon{ margin-right: 5px;}.body-panel{ overflow-y: scroll; height: 250px;}::-webkit-scrollbar-track{ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); background-color: #F5F5F5;}::-webkit-scrollbar{ width: 12px; background-color: #F5F5F5;}::-webkit-scrollbar-thumb{ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3); background-color: #555;}
+</style><!DOCTYPE html><html><head> <!-- Latest compiled and minified CSS --> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> <!-- Optional theme --> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"><;/script> <!-- Latest compiled and minified JavaScript --> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"&gt;</script> <link rel="stylesheet" href="style.css"> <script src="https://js.pusher.com/4.0/pusher.min.js"></script> <script src="index.js"></script></head><body> <div class="container"> <div class="row form-group"> <div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-8 col-lg-offset-2"> <div class="panel panel-primary"> <div class="panel-heading"> <span class="glyphicon glyphicon-comment"></span> Chatter Chat <div class="btn-group pull-right"> <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-chevron-down"></span> </button> <ul class="dropdown-menu slidedown"> <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-refresh"> </span>Refresh</a></li> <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-ok-sign"> </span>Available</a></li> <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-remove"> </span>Busy</a></li> <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-time"></span> Away</a></li> <li class="divider"></li> <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-off"></span> Sign Out</a></li> </ul> </div> </div> <div class="panel-body body-panel"> <ul class="chat"> </ul> </div> <div class="panel-footer clearfix"> <textarea id="message" class="form-control" rows="3"></textarea> <span class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12" style="margin-top: 10px"> <button class="btn btn-warning btn-lg btn-block" id="btn-chat">Send</button> </span> </div> </div> </div> </div></div><script id="new-message-other" type="text/template"> <li class="left clearfix"> <span class="chat-img pull-left"> <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" /> </span> <div class="chat-body clearfix"> <p> {{body}} </p> </div> </li></script><script id="new-message" type="text/template"> <li id="{{id}}" class="right clearfix"> <div class="chat-body clearfix"> <p> {{body}} </p> </div> </li></script></body>&lt;/html>
+  
+
+
+
+</div></div></div>
+</div></div></div>
+</div></div></div>
+
+
+
+
+<!DOCTYPE html> <html> <head> <style> .dropbtn { background-color: #48d1cc; color: white; padding: 16px; font-size: 16px; border: none; cursor: pointer; } .dropbtn:hover, .dropbtn:focus { background-color: #7effa5; } .dropdown { position: relative; display: inline-block; } .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; overflow: auto; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); } .dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block; } .dropdown a:hover {background-color: #f1f1f1} .show {display:block;} </style> </head> <body><script>CREATE TABLE `notification`(  `notificationID` INT PRIMARY KEY AUTO_INCREMENT,  `type` VARCHAR( 10 ),  `forUser` VARCHAR( 50 ),  `entityID` INT,  `read` TINYINT( 1 ) DEFAULT 0,  `time` DATETIME DEFAULT NOW(),  FOREIGN KEY( `forUser` ) REFERENCES `user`( `username` ) ); 
+ CREATE TABLE `post`(  `postID` INT PRIMARY KEY,  `text` VARCHAR( 250 ) ); 
+ CREATE TABLE `comment`(  `commentID` INT PRIMARY KEY,  `postID` INT,  `author` VARCHAR( 100 ),  `text` VARCHAR( 250 ),  FOREIGN KEY( `postID` ) REFERENCES `post`(`postID`) ) 
+ function notify( $type, $forUser, $entityID ){  $con = new mysqli( "localhost", "root", "password", "testDB");  $sql = "SELECT `notificationID` FROM `notification` WHERE `forUser`='" . $forUser . "' AND `entityID`=" . $entityID . " AND `type`='" . $type . "';";  $result = $con->query( $sql );    // if query returned a row, it means the notification exists  if( $result->num_rows > 0 ){   // update the existing record, set read to false and time to the current time   $sql = "UPDATE `notification` SET `read`=0, `time`=NOW() WHERE `forUser`='" . $forUser . "' AND `entityID`=" . $entityID . " AND `type`='" . $type . "';";   $con->query( $sql );  }  else{   // insert new record with the details   $sql = "INSERT INTO `notification`( `type`, `forUser`, `entityID` ) VALUES( '" . $type . "','" . $forUser . "'," . $entityID . " );";   $con->query( $sql );  }  $con->close(); } 
+ include("notify.php"); $postID = 5 ; // an example post to which the comment is referring $username = "user1" ; // an example user who created the post //comment uploading notify( "comment", $username, $postID ); 
+$con = new mysqli( "localhost", "root", "password", "testDB"); $reset = (int) $_GET[ "reset" ]; // either 1 or 0 ( true and false ) $username = "user1"; // the user who's notifications we will be loading if( $reset === 1 ){  $sql = "SELECT * FROM `notification` WHERE `forUser`='" . $username . "' ORDER BY `time` DESC LIMIT 10;";  setcookie( "loadedNotifications", "10", time() + 86400, "/" ); // store the cookie holding the amount of loaded notifications } else{  $loadedNots=(int) $_COOKIE[ "loadedNotifications" ]; // get the amount of previously loaded notifications  $sql = "SELECT * FROM `notification` WHERE `forUser`='" . $username . "' ORDER BY `time` DESC LIMIT " . $loadedNots . " 10;";  $loadedNots = (string)( $loadedNots + 10 ); // calculate how many notifications have been loaded after query  setcookie( "loadedNotifications", $loadedNots, time() + 86400, "/" ); // update cookie with new value } $result = $con->query( $sql ); $notifications = array(); // declare an array to store the fetched notifications if( $result->num_rows > 0 ){  while( $row = $result->fetch_assoc() ){   $notifications[] = array( "id" => $row[ "notificationID" ], "type" => $row[ "type" ], "entityID" => $row[ "entityID" ], "read" => $row[ "read" ], "text" => "" );  } } else{  // no more notifications } /* * now we need to find the activity that relates to the notification * and create a text message that will be displayed to the user * containing the users who are responsible for that particular activity */ for( $i = 0; $i < count( $notifications ); $i++ ){  $sql = ""; // reset query string each time loop runs    // use different code for each type of notification ( ie. comments or ratings )  switch( $notifications[ $i ][ "type" ] ){   case "comment":    $sql = "SELECT `author` FROM `comment` WHERE `postID`=" . $notifications[ $i ][ "entityID" ] . ";";    $result = $con->query( $sql );        /*    * For this example we want a maximum of two names in the notification text    * if there are more than 2, then we'll include those as a number    */    if( $result->num_rows === 1 ){     $row = $result->fetch_assoc();     $name = $row[ "author" ];     $notifications[ $i ][ "text" ] = $name . " commented on your post";    }    elseif( $result->num_rows === 2 ){     $row = $result->fetch_assoc();     $name1 = $row[ "author" ]; // fetch first name     $row = $result->fetch_assoc();     $name2 = $row[ "author" ]; // fetch second name     $notifications[ $i ][ "text" ] = $name1 . " and " . $name2 . " commented on your post";    }    elseif( $result->num_rows > 2 ){     $total = $result->num_rows - 2 //fetch the number of users who commented minus the two names we will use     $row = $result->fetch_assoc();     $name1 = $row[ "author" ]; // fetch first name     $row = $result->fetch_assoc();     $name2 = $row[ "author" ]; // fetch second name     $notifications[ $i ][ "text" ] = $name1 . ", " . $name2 . " and " . $total . " others commented on your post";    }       break;   // other cases to suit your needs  } } echo( json_encode( $notifications ) ); // convert array to JSON text 
+function getNotifications( reset ){  var xmlhttp = new XMLHttpRequest();  xmlhttp.onreadystatechange = function() {   if ( xmlhttp.readyState === 4 && xmlhttp.status === 200 ) {    var response = xmlhttp.responseText;    var notifications=JSON.parse( response ); // create JSON object from response       for( var i = 0 ; i < notifications.length ; i++ ){     var notificationID = notifications[ i ].id;     var entityID = notifications[ i ].entityID;     var text = notifications[ i ].text;     var type = notifications[ i ].type;     var read = notifications[ i ].read;     // add notification into your HTML here    }   }  }  xmlhttp.open("GET", "getNotifications.php?reset=" + reset, true);  xmlhttp.send(); } 
+ 
+ 
+ </script>
+ 
+<script type='text/javascript' src='js/jquery.min.1.9.js'></script><script type='text/javascript' >$(document).ready(function(){$('#notificationLink').click(function(){$('#notificationContainer').fadeToggle(300);$('#notification_count').fadeOut('slow');return false;});//Document Click hiding the popup $(document).click(function(){$('#notificationContainer').hide();});//Popup on click$('#notificationContainer').click(function(){return false;});});</script>
+<style> header{  border: 1px solid blue;  background-color:blue;  padding:10px;  border-radius:5px;  }  </style>
+<style>#nav{list-style:none;margin: 0px;padding: 0px;}#nav li {float: left;margin-right: 20px;font-size: 14px;font-weight:bold;}#nav li a{color:#333333;text-decoration:none}#nav li a:hover{color:#006699;text-decoration:none}</style><style>#notification_li{position:relative}#notificationContainer {background-color: #fff;border: 1px solid rgba(100, 100, 100, .4);-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);overflow: visible;position: absolute;top: 30px;margin-left: -170px;width: 400px;z-index: -1;display: none; // Enable this after jquery implementation }// Popup Arrow#notificationContainer:before {content: '';display: block;position: absolute;width: 0;height: 0;color: transparent;border: 10px solid black;border-color: transparent transparent white;margin-top: -20px;margin-left: 188px;}#notificationTitle{font-weight: bold;padding: 8px;font-size: 13px;background-color: #ffffff;position: fixed;z-index: 1000;width: 384px;border-bottom: 1px solid #dddddd;}#notificationsBody{padding: 33px 0px 0px 0px !important;min-height:300px;}#notificationFooter{background-color: #e9eaed;text-align: center;font-weight: bold;padding: 8px;font-size: 12px;border-top: 1px solid #dddddd;}#notification_count {padding: 3px 7px 3px 7px;background: #cc0000;color: #ffffff;font-weight: bold;margin-left: 77px;border-radius: 9px;-moz-border-radius: 9px; -webkit-border-radius: 9px;position: absolute;margin-top: -11px;font-size: 11px;}</style>
+ </h6>
+
+	 <title>Untitled</title>
+	 <meta charset="UTF-8"/>
+	 <link rel="stylesheet" href="" type="text/css"/>
+ </head>
+	 <body>
+	
+	 </body>
+ </html>
